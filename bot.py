@@ -3,7 +3,7 @@ import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
 
-TOKEN = os.getenv("8526040986:AAHpP6zzX15dTS5tRY3DUNdLCey7OldWu2E")
+TOKEN = os.getenv("BOT_TOKEN")
 
 answers = [
     "Да.",
