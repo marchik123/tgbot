@@ -17,6 +17,10 @@ answers = [
 async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(random.choice(answers))
 
-app = ApplicationBuilder().token(TOKEN).build()
-app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
-app.run_polling()
+def main():
+    app = ApplicationBuilder().token(TOKEN).build()
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
+    app.run_polling()
+
+if name == "__main__":
+    main()
