@@ -2,7 +2,7 @@ import random
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
 
-TOKEN = "BOT_TOKEN"
+TOKEN = "8526040986:AAHpP6zzX15dTS5tRY3DUNdLCey7OldWu2E"
 
 answers = [
     "Да.",
@@ -14,13 +14,9 @@ answers = [
 ]
 
 async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(random.choice(answers))
+    if update.message:
+        await update.message.reply_text(random.choice(answers))
 
-def main():
-    app = ApplicationBuilder().token(TOKEN).build()
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
-    print("Бот запущен. Ждёт сообщений...")
-    app.run_polling()
-
-if name == "main":
-    main()
+app = ApplicationBuilder().token(TOKEN).build()
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
+app.run_polling()
